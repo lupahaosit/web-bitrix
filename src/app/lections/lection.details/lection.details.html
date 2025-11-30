@@ -1,0 +1,30 @@
+<header-component></header-component>
+<div class="lection-details">
+    @if (lection) {
+        <h1>{{ lection.name }}</h1>
+        <p class="description">{{ lection.description }}</p>
+
+        <div class="content">
+            <h3>Содержание лекции:</h3>
+            <p>{{ lection.content }}</p>
+        </div>
+
+        @if (lection.files && lection.files.length > 0) {
+            <div class="files">
+                <h3>Материалы для скачивания:</h3>
+                <ul>
+                    @for (file of lection.files; track file.id) {
+                        <li>
+                            <a target="_blank" download (click)="download(file.id)">
+                                📎 {{ file.name }}
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    } @else {
+        <p>Загрузка лекции...</p>
+    }
+</div>
+<footer-component></footer-component>

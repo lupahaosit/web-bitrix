@@ -1,0 +1,28 @@
+<div class="container py-4">
+    <div class="row">
+        @for (course of courses; track course.id) {
+            <div class="col-12 mb-4">
+                <div class="card course-card h-100 border-0 shadow-sm">
+                    <div class="row g-0 h-100">
+                        <!-- Картинка слева -->
+                        <div class="col-md-4">
+                            <img [src]="course.cover" [alt]="course.name" class="img-fluid h-100 w-100" style="object-fit: cover; border-top-left-radius: 0.375rem; border-bottom-left-radius: 0.375rem;">
+                        </div>
+                        <!-- Контент справа -->
+                        <div class="col-md-8">
+                            <div class="card-body d-flex flex-column h-100">
+                                <h3 class="card-title">
+                                    <a [routerLink]="[course.id, 'lections']" (click)="saveCourseId(course.id)" class="text-decoration-none text-primary">
+                                        {{ course.name }}
+                                    </a>
+                                </h3>
+                                <p class="card-text text-muted flex-grow-1">{{ course.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<footer-component></footer-component>

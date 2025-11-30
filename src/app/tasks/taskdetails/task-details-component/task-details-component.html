@@ -1,0 +1,82 @@
+<header-component></header-component>
+<div class="task-details-container container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title text-primary mb-4">{{task!.name}}</h3>
+
+            <div class="task-details">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="mb-2"><strong>Описание:</strong></p>
+                        <p class="text-muted">{{task?.description}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="mb-2"><strong>Статус:</strong></p>
+                        <p>
+                            {{getStatus(task?.status)}}
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="mb-2"><strong>Дата окончания:</strong></p>
+                        <p class="text-muted">{{task?.endDate | date:'dd.MM.yyyy'}}</p>
+                    </div>
+                </div>
+
+                @if (task?.assignedFiles && task.assignedFiles.length > 0) {
+                    <div class="assigned-files task-section mb-4">
+                        <h5 class="mb-3">📎 Прикрепленные файлы:</h5>
+                        <div class="list-group">
+                            @for (file of task.assignedFiles; track file.id) {
+                                <a [href]="file.name" target="_blank" class="list-group-item list-group-item-action">
+                                    <i class="bi bi-file-earmark me-2"></i>{{file.name}}
+                                 </a>
+                            }
+                        </div>
+                    </div>
+                }
+
+
+                    <div class="text-answer task-section mb-4">
+                        <h5 class="mb-3">📝 Текстовый ответ:</h5>
+                        <textarea
+                                name="textAnswer"
+                                [(ngModel)]="task.textAnswer"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Введите ваш ответ...">
+                        </textarea>
+                    </div>
+
+
+
+                    <div class="url-answer task-section mb-4">
+                        <h5 class="mb-3">🔗 Ссылка на ответ:</h5>
+                        <textarea
+                                [(ngModel)]="task.urlAnswer"
+                                class="form-control"
+                                rows="2"
+                                placeholder="https://example.com">
+                        </textarea>
+                    </div>
+
+
+                @if (task?.fileAnswer) {
+                    <div class="file-answer task-section mb-4">
+                        <h5 class="mb-3">📁 Файл ответа:</h5>
+                        <input
+                                type="file"
+                                (change)="setFile($event)"
+                                class="form-control">
+                    </div>
+                }
+            </div>
+
+            <div class="d-flex justify-content-end mt-4">
+                <button (click)="save()" class="btn btn-primary btn-lg">
+                    <i class="bi bi-check-circle me-2"></i>Сохранить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<footer-component></footer-component>

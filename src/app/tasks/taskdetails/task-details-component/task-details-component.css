@@ -1,0 +1,79 @@
+/* Дополнительные кастомные стили */
+.task-details-container {
+    min-height: 80vh;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.task-section {
+    border-left: 4px solid #007bff;
+    padding-left: 1rem;
+}
+
+.assigned-files {
+    border-left-color: #28a745;
+}
+
+.text-answer {
+    border-left-color: #ffc107;
+}
+
+.url-answer {
+    border-left-color: #17a2b8;
+}
+
+.file-answer {
+    border-left-color: #6f42c1;
+}
+
+.list-group-item {
+    border: 1px solid #e9ecef;
+    margin-bottom: 0.5rem;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.1);
+}
+
+.btn-primary {
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+}
+
+.badge {
+    font-size: 0.9em;
+    padding: 0.5em 0.75em;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .task-details-container {
+        margin: 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .btn-lg {
+        width: 100%;
+    }
+}

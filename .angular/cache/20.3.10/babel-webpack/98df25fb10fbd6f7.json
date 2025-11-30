@@ -1,0 +1,1 @@
+{"ast":null,"code":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.LoginModel = void 0;\nclass LoginModel {\n  constructor(username, password) {\n    this.username = username;\n    this.password = password;\n  }\n}\nexports.LoginModel = LoginModel;","map":null,"metadata":{},"sourceType":"script","externalDependencies":[]}
