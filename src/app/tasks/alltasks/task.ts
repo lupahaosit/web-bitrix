@@ -36,7 +36,7 @@ export class TaskComponent {
                 this.tasks = value
                 console.log(value);
             },
-            error: err => {
+            error: (err: any) => {
                 this.tasks = []
                 console.log(err)
             }

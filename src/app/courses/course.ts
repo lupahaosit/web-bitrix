@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
-import { CourseService } from '../services/course.service';
+import { CourseService } from './course.Service';
 import {CourseModel} from "../models/Course.model";
 import {Footer} from "../common/footer/footer";
 
@@ -30,7 +29,7 @@ export class CourseComponent implements OnInit {
                     cover: `data:image/png;base64,${course.coverBase64}`
                 }));
             },
-            error: err => {
+            error: (err: any) => {
                 console.log('Error loading courses:', err);
                 this.courses = [];
             }

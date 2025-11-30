@@ -37,7 +37,7 @@ export class Lection implements OnInit {
     loadLections(): void {
         this.lectionService.getLections(this.courseId).subscribe({
             next: data => this.lections = data,
-            error: err => console.error(err)
+            error: (err: any) => console.error(err)
         });
     }
 }

@@ -29,7 +29,7 @@ export class LectionDetails {
             this.lectionService.getLection(+id).subscribe({
                 next: data =>
                     this.lection = data,
-                error: err =>
+                error: (err: any) =>
                     console.log(err)
             });
         }

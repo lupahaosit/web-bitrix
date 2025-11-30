@@ -27,7 +27,7 @@ export class Login {
                 this.isError = false;
                 this.router.navigate(['/lections'])
             },
-            error: (result) => {
+            error: (result: any) => {
                 this.isError = true
                 this.router.navigate(['/login'])
             }

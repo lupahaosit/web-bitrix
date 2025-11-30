@@ -48,7 +48,7 @@ export class TaskDetailsComponent {
                     console.log("Save failed");
                 }
             },
-            error: (error) => {
+            error: (error: any) => {
                 console.error("Save error:", error);
             }
         });
