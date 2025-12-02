@@ -8,6 +8,8 @@ export class TaskModel {
     status: TaskStatus = TaskStatus.NOT_STARTED;
     endDate: Date = new Date();
     assignedFiles: FileModel[] = [];
+    review: String = "";
+    mark: String = "";
     textAnswer: string | null = null;
     urlAnswer: string | null = null;
     fileAnswer: FileModel | null = null;

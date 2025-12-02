@@ -19,4 +19,8 @@ export class LectionService {
 
         return this.http.get<LectionModel>(`http://localhost:8080/api/lection/${id}`);
     }
+
+    downloadFile(id: number) {
+        return this.http.get<boolean>(`http://localhost:8080/api/file/${id}`);
+    }
 }

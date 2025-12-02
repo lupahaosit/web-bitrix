@@ -36,6 +36,13 @@ export class LectionDetails {
     }
 
     download(id: number) {
-
+        this.lectionService.downloadFile(id).subscribe({
+            next: data => {
+                console.log(data);
+            },
+            error: (err: boolean) => {
+                console.log(err);
+            }
+        })
     }
 }

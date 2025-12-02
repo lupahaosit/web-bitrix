@@ -60,13 +60,51 @@
                     </div>
 
 
-                @if (task?.fileAnswer) {
-                    <div class="file-answer task-section mb-4">
-                        <h5 class="mb-3">📁 Файл ответа:</h5>
-                        <input
-                                type="file"
-                                (change)="setFile($event)"
-                                class="form-control">
+                <div class="file-answer task-section mb-4">
+                    <h5 class="mb-3">📁 Файл ответа:</h5>
+
+                    @if (task?.fileAnswer && task.fileAnswer!!.name) {
+                        <div class="existing-file mb-2">
+                            <div class="d-flex align-items-center">
+                                <span class="me-2">✅</span>
+                                <span>Файл загружен:</span>
+                                <strong class="ms-2">{{ task.fileAnswer!!.name }}</strong>
+                                <span class="text-muted ms-2">({{ task.fileAnswer!!.date | date:'dd.MM.yyyy' }})</span>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm me-2"
+                                       (click)="downloadFile(task.fileAnswer!!.id)">
+                                    Скачать
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm"
+                                       (click)="replaceFile()">
+                                    Заменить файл
+                                </button>
+                            </div>
+                        </div>
+                    } @else {
+                        <div class="file-upload">
+                            <input
+                                    type="file"
+                                    (change)="setFile($event)"
+                                    class="form-control">
+                            <div class="form-text">Файл не выбран</div>
+                        </div>
+                    }
+                </div>
+
+                @if (task?.review) {
+                    <div class="text-answer, task-section mb-4">
+                        <h5 class="mb-3">Отзыв: </h5>
+                        <p class="form-control">
+                            {{task.review}}
+                        </p>
+                    </div>
+                }
+
+                @if (task?.mark) {
+                    <div>
+                        <h3 class="mb-3">Оценка: {{task.mark}}</h3>
                     </div>
                 }
             </div>

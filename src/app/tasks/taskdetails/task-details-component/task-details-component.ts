@@ -76,4 +76,19 @@ export class TaskDetailsComponent {
             default: return status;
         }
     }
+
+    replaceFile() {
+        this.task.fileAnswer = null;
+    }
+
+    downloadFile(id: number) {
+        this.taskService.downloadFile(id).subscribe({
+            next: result => {
+                console.log("Download result:", result);
+            },
+            error: (error: boolean) => {
+              console.error("Download error:", error);
+            }
+        })
+    }
 }
