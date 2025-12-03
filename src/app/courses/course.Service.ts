@@ -12,6 +12,8 @@ export class CourseService {
     constructor(private http: HttpClient) { }
 
     getCourses(): Observable<CourseModel[]> {
-        return this.http.get<CourseModel[]>(`http://192.168.1.60/api/CourseApi/getAll/`);
+        return this.http.get<CourseModel[]>(`http://192.168.1.60/api/CourseApi/getAll/`, {
+            withCredentials: true,
+        });
     }
 }
