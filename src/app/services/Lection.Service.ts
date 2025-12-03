@@ -12,12 +12,12 @@ export class LectionService {
 
     getLections(courseId: number): Observable<LectionModel[]> {
 
-        return this.http.get<LectionModel[]>(`http://localhost:8080/api/${courseId}/lections`);
+        return this.http.get<LectionModel[]>(`http://192.168.1.60/api/LectureApi/getAll/?courseId=${courseId}`);
     }
 
     getLection(id: number): Observable<LectionModel> {
 
-        return this.http.get<LectionModel>(`http://localhost:8080/api/lection/${id}`);
+        return this.http.get<LectionModel>(`http://192.168.1.60/api/LectureApi/getById/?id=${id}`);
     }
 
     downloadFile(id: number) {

@@ -12,19 +12,19 @@ import {Form} from "@angular/forms";
 export class TaskService {
     constructor(private http: HttpClient) {}
 
-    public getAllTasks(lectionId: number): Observable<TaskModel[]> {
+    public getAllTasks(courseId: number): Observable<TaskModel[]> {
 
-        return this.http.get<TaskModel[]>(`http://localhost:8080/api/${lectionId}/tasks`);
+        return this.http.get<TaskModel[]>(`http://192.168.1.60/api/TaskApi/getAll/?courseId=${courseId} `);
     }
 
     public getTask(taskId: number) : Observable<TaskModel> {
 
-        return this.http.get<TaskModel>(`http://localhost:8080/api/task/${taskId}`)
+        return this.http.get<TaskModel>(`http://192.168.1.60/api/TaskApi/getById/?id=${taskId} `)
     }
 
     saveAnswers(task: TaskModel) : Observable<boolean> {
         const formData = this.createFormDataFromTask(task);
-        return this.http.post<boolean>('http://localhost:8080/api/tasks', formData);
+        return this.http.post<boolean>('http://192.168.1.60/api/TaskResponseApi/addResponse/', formData);
     }
 
     private createFormDataFromTask(task: TaskModel): FormData {

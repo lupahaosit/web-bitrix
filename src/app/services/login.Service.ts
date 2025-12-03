@@ -8,6 +8,6 @@ import {LoginModel} from "../models/Login.model";
 export class LoginService {
     constructor(private http: HttpClient) { }
   public login(loginModel: LoginModel) {
-      return this.http.post("http://localhost:8080/api/login", loginModel);
+      return this.http.post("http://192.168.1.60/api/AuthApi/login/", loginModel);
   }
 }
