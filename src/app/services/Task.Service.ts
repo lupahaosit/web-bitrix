@@ -63,7 +63,7 @@ export class TaskService {
             const fileMetadata = task.assignedFiles.map(file => ({
                 id: file.id,
                 name: file.name,
-                date: file.date.toISOString()
+                date: file.date
             }));
             formData.append('assignedFilesMetadata', JSON.stringify(fileMetadata));
         }

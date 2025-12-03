@@ -6,7 +6,7 @@ export class TaskModel {
     name: string = "";
     description: string = "";
     status: TaskStatus = TaskStatus.NOT_STARTED;
-    endDate: Date = new Date();
+    endDate: String = "01.01.1980";
     assignedFiles: FileModel[] = [];
     review: String = "";
     mark: String = "";
