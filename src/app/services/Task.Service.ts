@@ -72,6 +72,6 @@ export class TaskService {
     }
 
     downloadFile(id: number) {
-        return this.http.get<boolean>(`http://localhost/api/FileUploadAPI/uploadToIblock/?id=${id}`);
+        return this.http.get<boolean>(`http://192.168.1.60/api/FileUploadAPI/uploadToIblock/?id=${id}`);
     }
 }

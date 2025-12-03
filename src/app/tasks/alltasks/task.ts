@@ -42,4 +42,10 @@ export class TaskComponent {
             }
         })
     }
+
+    isTaskExpired(endDate: string) {
+            const taskDate = new Date(endDate);
+            const currentDate = new Date();
+            return taskDate < currentDate;
+    }
 }

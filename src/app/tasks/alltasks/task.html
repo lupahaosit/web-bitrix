@@ -2,13 +2,24 @@
 <div class="tasks-container">
     <ul class="tasks-list">
         @for (task of tasks; track task.id) {
-            <a [routerLink]="['/tasks', task.id]" class="task-link">
-                <li class="task-item">
-                    <h3>Задача: {{ task.name }}</h3>
-                    <p>Статус: {{ task.status }}</p>
-                    <p>Крайний срок: {{ task.endDate }}</p>
-                </li>
-            </a>
+            @if (isTaskExpired(task.endDate.toString())) {
+                <div class="task-link expired">
+                    <li class="task-item">
+                        <h3>Задача: {{ task.name }}</h3>
+                        <p>Статус: {{ task.status }}</p>
+                        <p>Крайний срок: {{ task.endDate }}</p>
+                        <span class="expired-label">(Просрочено)</span>
+                    </li>
+                </div>
+            } @else {
+                <a [routerLink]="['/tasks', task.id]" class="task-link">
+                    <li class="task-item">
+                        <h3>Задача: {{ task.name }}</h3>
+                        <p>Статус: {{ task.status }}</p>
+                        <p>Крайний срок: {{ task.endDate }}</p>
+                    </li>
+                </a>
+            }
         }
     </ul>
 </div>

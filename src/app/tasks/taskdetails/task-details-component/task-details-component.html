@@ -27,7 +27,7 @@
                         <h5 class="mb-3">📎 Прикрепленные файлы:</h5>
                         <div class="list-group">
                             @for (file of task.assignedFiles; track file.id) {
-                                <a [href]="file.name" target="_blank" class="list-group-item list-group-item-action">
+                                <a (click)="downloadFile(file.id)" target="_blank" class="list-group-item list-group-item-action">
                                     <i class="bi bi-file-earmark me-2"></i>{{file.name}}
                                  </a>
                             }
