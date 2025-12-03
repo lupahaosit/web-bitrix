@@ -15,7 +15,7 @@
                 <ul>
                     @for (file of lection.files; track file.id) {
                         <li>
-                            <a target="_blank" download (click)="download(file.id)">
+                            <a target="_blank" [href]="'http://192.168.1.60/api/FileUploadAPI/uploadToIblock/?id=' + file.id">
                                 📎 {{ file.name }}
                             </a>
                         </li>

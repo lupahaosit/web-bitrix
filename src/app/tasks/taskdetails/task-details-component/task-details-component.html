@@ -27,7 +27,7 @@
                         <h5 class="mb-3">📎 Прикрепленные файлы:</h5>
                         <div class="list-group">
                             @for (file of task.assignedFiles; track file.id) {
-                                <a (click)="downloadFile(file.id)" target="_blank" class="list-group-item list-group-item-action">
+                                <a [href]="'http://192.168.1.60/api/FileUploadAPI/uploadToIblock/?id=' + file.id" target="_blank" class="list-group-item list-group-item-action">
                                     <i class="bi bi-file-earmark me-2"></i>{{file.name}}
                                  </a>
                             }
@@ -72,10 +72,10 @@
                                 <span class="text-muted ms-2">({{ task.fileAnswer!!.date | date:'dd.MM.yyyy' }})</span>
                             </div>
                             <div class="mt-2">
-                                <button type="button" class="btn btn-outline-secondary btn-sm me-2"
-                                       (click)="downloadFile(task.fileAnswer!!.id)">
+                                <a type="button" class="btn btn-outline-secondary btn-sm me-2"
+                                        [href]="'http://192.168.1.60/api/FileUploadAPI/uploadToIblock/?id=' + task.fileAnswer!.id">
                                     Скачать
-                                </button>
+                                </a>
                                 <button type="button" class="btn btn-outline-danger btn-sm"
                                        (click)="replaceFile()">
                                     Заменить файл

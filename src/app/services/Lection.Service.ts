@@ -21,6 +21,7 @@ export class LectionService {
     }
 
     downloadFile(id: number) {
-        return this.http.get<boolean>(`http://localhost:8080/api/file/${id}`,);
+
+        return this.http.get<boolean>(`http://192.168.1.60/api/FileUploadAPI/uploadToIblock/?id=${id}`);
     }
 }

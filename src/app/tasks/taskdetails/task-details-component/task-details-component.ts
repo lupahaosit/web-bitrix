@@ -7,6 +7,7 @@ import {HeaderComponent} from "../../../common/header/header.component/header.co
 import {DatePipe, NgClass} from "@angular/common";
 import {Footer} from "../../../common/footer/footer";
 import {FormsModule} from "@angular/forms";
+import {toArray} from "rxjs";
 
 @Component({
   selector: 'task-details-component',
@@ -91,4 +92,6 @@ export class TaskDetailsComponent {
             }
         })
     }
+
+    protected readonly toArray = toArray;
 }

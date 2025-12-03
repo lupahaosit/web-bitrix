@@ -72,6 +72,7 @@ export class TaskService {
     }
 
     downloadFile(id: number) {
+        //адрес открывать в браузере
         return this.http.get<boolean>(`http://192.168.1.60/api/FileUploadAPI/uploadToIblock/?id=${id}`);
     }
 }
